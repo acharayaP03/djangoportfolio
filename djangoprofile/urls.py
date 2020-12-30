@@ -17,8 +17,11 @@ from django.contrib import admin
 from django.urls import path
 #importing settings
 from django.conf import settings
+# import blog views
+import about.views
 #improting static 
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', about.views.home)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
