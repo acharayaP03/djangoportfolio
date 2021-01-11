@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import About
 # Create your views here.
 def home(request):
-    return render(request, 'about/home.html')
+    about = About.objects
+    return render(request, 'about/home.html', { 'about': about})

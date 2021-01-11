@@ -60,7 +60,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="d-flex flex-column h-100">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -92,63 +92,23 @@
         </div>
       </nav>
     </header>
-    <main>
-      <section class="py-5 text-center container">
-        <div class="row py-lg-5">
-          <div class="col-lg-10 col-md-12 mx-auto">
-            <h1 class="fw-light">Trishten Ac</h1>
-            {% for desc in about.all %}
-            <p class="lead text-muted">{{ desc.headline }}</p>
-            <p class="lead text-left text-muted">{{ desc.summary }}</p>
-            {% endfor %}
-            <p>
-              <a href="#" class="btn btn-primary my-2">Contact Me</a>
-            </p>
-          </div>
-        </div>
-      </section>
 
-      <div class="album py-5 bg-light">
-        <div class="container">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg
-                  class="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  xmlns="http://www.w3.org/2000/svg"
-                  role="img"
-                  aria-label="Placeholder: Thumbnail"
-                  preserveAspectRatio="xMidYMid slice"
-                  focusable="false"
-                >
-                  <title>Placeholder</title>
-                  <rect width="100%" height="100%" fill="#55595c" />
-                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                </svg>
-
-                <div class="card-body">
-                  <p class="card-text">
-                    This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Begin page content -->
+    <main class="flex-shrink-0">
+      <div class="container">
+        <h1 class="py-5 text-center">Welcome to my blogs</h1>
+        <h1>Recent posts</h1>
+        <hr />
+        {% for b in blog.all %}
+        <h2 class="py-3">{{ b.title }}</h2>
+        <p class="lead">{{ b.truncate_body }}</p>
+        <a href="{{ b. }}"></a>
+        <small class="d-block">Author&nbsp;<strong>{{ b.author }}</strong></small>
+        <small class="d-block">created at : {{ b.prettify_date }}</small>
+        {% endfor %}
       </div>
     </main>
-
-    <footer class="text-muted py-5 m-auto">
+    <footer class="footer mt-auto py-3 bg-light">
       <div class="container text-center">
         <p class="mb-1">Trishten ac &copy; {% now "Y"%}</p>
         <p class="mb-0">
